@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --no-restore
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+
+  http-tests:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Build and start containers
+        run: docker compose up -d --build
+        
+      - name: Wait for API to be ready
+        run: |
+          timeout 60s bash -c 'until curl -s http://localhost:8080/reverse/hello > /dev/null; do sleep 2; done'
+          
+      - name: Install httpyac
+        run: npm install -g httpyac
+        
+      - name: Run HTTP tests
+        run: |
+          # Overriding HostAddress to point to the docker container port
+          httpyac Project498.WebApi/Project498.WebApi.http --all --env container
+          
+      - name: Stop containers
+        if: always()
+        run: docker compose down
