@@ -1,4 +1,4 @@
-## Team3-DCBooks
+# Team3-DCBooks
 
 Authors: Gabi Bekhrad, Jalen Myers, Laurel Latt
 
@@ -7,7 +7,7 @@ DC Books is a library simulation application for DC comics. Users can create acc
 
 ---
 
-## Quick start with Podman (recommended)
+## Start with Podman
 
 1. **Make sure Podman is running**
 
