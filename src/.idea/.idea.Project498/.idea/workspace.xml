@@ -11,32 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a2026516-85f8-4393-a111-6a4ef1119bab" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/Project498.WebApi/wwwroot/createAccount.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi.Tests/Project498.WebApi.Tests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi.Tests/Project498.WebApi.Tests.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi.Tests/bin/Debug/net10.0/CoverletSourceRootsMapping_Project498.WebApi.Tests" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi.Tests/bin/Debug/net10.0/CoverletSourceRootsMapping_Project498.WebApi.Tests" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/Debug/net10.0/Project498.WebApi.Tests.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/Debug/net10.0/Project498.WebApi.Tests.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/Debug/net10.0/Project498.WebApi.Tests.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/Debug/net10.0/Project498.WebApi.Tests.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/Debug/net10.0/Project498.WebApi.Tests.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/Debug/net10.0/Project498.WebApi.Tests.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/Debug/net10.0/Project498.WebApi.Tests.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/Debug/net10.0/Project498.WebApi.Tests.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/Debug/net10.0/Project498.WebApi.Tests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/Debug/net10.0/Project498.WebApi.Tests.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/Project498.WebApi.Tests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/Project498.WebApi.Tests.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/Project498.WebApi.Tests.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/Project498.WebApi.Tests.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/Project498.WebApi.Tests.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/Project498.WebApi.Tests.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi.Tests/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi/obj/Debug/net10.0/Project498.WebApi.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi/obj/Debug/net10.0/Project498.WebApi.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi/obj/Debug/net10.0/Project498.WebApi.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi/obj/Debug/net10.0/Project498.WebApi.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi/obj/Debug/net10.0/Project498.WebApi.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi/obj/Debug/net10.0/Project498.WebApi.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi/obj/Debug/net10.0/Project498.WebApi.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi/obj/Debug/net10.0/Project498.WebApi.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi/obj/Debug/net10.0/Project498.WebApi.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi/obj/Debug/net10.0/Project498.WebApi.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi/obj/Project498.WebApi.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi/obj/Project498.WebApi.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi/obj/Project498.WebApi.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi/obj/Project498.WebApi.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi/obj/Project498.WebApi.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi/obj/Project498.WebApi.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project498.WebApi/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi/obj/rider.project.restore.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project498.WebApi/wwwroot/js/createAccount.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project498/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project498/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project498.WebApi/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Project498.WebApi/Controllers/UsersController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +206,7 @@
       <workItem from="1775096890480" duration="495000" />
       <workItem from="1775097389854" duration="1261000" />
       <workItem from="1775098670476" duration="321000" />
-      <workItem from="1775160989773" duration="14809000" />
+      <workItem from="1775160989773" duration="19691000" />
     </task>
     <task id="LOCAL-00001" summary="api spec doc">
       <option name="closed" value="true" />
@@ -279,7 +256,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775345539437</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="adding all of the extra project files">
+      <option name="closed" value="true" />
+      <created>1775443746743</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1775443746743</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +291,8 @@
     <MESSAGE value="Backend spec" />
     <MESSAGE value="Login page, no data" />
     <MESSAGE value="Connected login to data and set up unit test for login function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Connected login to data and set up unit test for login function" />
+    <MESSAGE value="adding all of the extra project files" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding all of the extra project files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
