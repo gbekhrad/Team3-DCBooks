@@ -54,6 +54,7 @@ public class UsersController : ControllerBase
             return BadRequest("Email already exists");
         }
 
+        user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
         return CreatedAtAction(nameof(GetUser), new { id = user.UserId }, user);
@@ -89,28 +90,5 @@ public class UsersController : ControllerBase
         await _context.SaveChangesAsync();
 
         return NoContent();
-    }
-    
-    [HttpPost("login")]
-    public async Task<ActionResult<User>> Login([FromBody] User loginData)
-    {
-        // Validate input
-        if (string.IsNullOrWhiteSpace(loginData.Username) ||
-            string.IsNullOrWhiteSpace(loginData.Password))
-        {
-            return BadRequest("Username and password are required");
-        }
-        
-        var user = await _context.Users
-            .FirstOrDefaultAsync(u => 
-                u.Username == loginData.Username &&
-                u.Password == loginData.Password);
-
-        if (user == null)
-        {
-            return Unauthorized("Invalid username or password");
-        }
-
-        return Ok(user);
     }
 }

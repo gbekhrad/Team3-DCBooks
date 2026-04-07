@@ -113,53 +113,21 @@ public class UserControllerTests
     }
 
     [Fact]
-    public async Task Login_ReturnsUser_WhenCredentialsValid()
+    public async Task AddUser_HashesPasswordBeforeSave()
     {
         UsersController controller = await CreateControllerWithSeededUser();
-        
-        User loginData = new User
+        User newUser = new User
         {
-            Username = "johndoe",
-            Password = "password123"
+            Username = "hashme",
+            Email = "hashme@email.com",
+            Password = "password123!"
         };
 
-        var result = await controller.Login(loginData);
+        var result = await controller.AddUser(newUser);
+        var createdResult = Assert.IsType<CreatedAtActionResult>(result.Result);
+        var returnedUser = Assert.IsType<User>(createdResult.Value);
 
-        Assert.IsType<OkObjectResult>(result.Result);
-    }
-
-    [Theory]
-    [InlineData("johndoe", "password124")]
-    [InlineData("johnDoe", "password123")]
-    public async Task Login_ReturnsUnauthorized_WhenCredentialsInvalid(string username, string password)
-    {
-        UsersController controller = await CreateControllerWithSeededUser();
-        User loginData = new User
-        {
-            Username = username,
-            Password = password
-        };
-        
-        var result = await controller.Login(loginData);
-        
-        Assert.IsType<UnauthorizedObjectResult>(result.Result);
-    }
-    
-    [Theory]
-    [InlineData(null, "password123")]
-    [InlineData("johndoe", null)]
-    public async Task Login_ReturnsBadResponse_WhenFieldMissing(string username, string password)
-    {
-        UsersController controller = await CreateControllerWithSeededUser();
-
-        User loginData = new User
-        {
-            Username = username,
-            Password = password
-        };
-        
-        var result = await controller.Login(loginData);
-        
-        Assert.IsType<BadRequestObjectResult>(result.Result);
+        Assert.NotEqual("password123!", returnedUser.Password);
+        Assert.True(BCrypt.Net.BCrypt.Verify("password123!", returnedUser.Password));
     }
 }
