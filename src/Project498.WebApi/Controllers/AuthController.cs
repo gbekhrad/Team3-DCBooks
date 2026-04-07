@@ -2,6 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Project498.WebApi.Data;
 using Project498.WebApi.Models;
@@ -24,10 +25,27 @@ public class AuthController : ControllerBase
     [HttpPost("register")]
     public async Task<IActionResult> Register(User user)
     {
+        if (string.IsNullOrWhiteSpace(user.Username) || string.IsNullOrWhiteSpace(user.Password) ||
+            string.IsNullOrWhiteSpace(user.Email) || string.IsNullOrWhiteSpace(user.FirstName) ||
+            string.IsNullOrWhiteSpace(user.LastName))
+        {
+            return BadRequest(new ErrorResponse("VALIDATION_ERROR", "All registration fields are required."));
+        }
+
+        if (await _context.Users.AnyAsync(u => u.Username == user.Username))
+        {
+            return BadRequest(new ErrorResponse("USERNAME_EXISTS", "Username already exists."));
+        }
+
+        if (await _context.Users.AnyAsync(u => u.Email == user.Email))
+        {
+            return BadRequest(new ErrorResponse("EMAIL_EXISTS", "Email already exists."));
+        }
+
         user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
-        return Ok("User registered successfully.");
+        return Ok(new { message = "User registered successfully." });
     }
 
     [HttpPost("login")]
@@ -35,10 +53,10 @@ public class AuthController : ControllerBase
     {
         var user = _context.Users.SingleOrDefault(u => u.Username == request.Username);
         if (user == null || !BCrypt.Net.BCrypt.Verify(request.Password, user.Password))
-            return Unauthorized("Invalid username or password.");
+            return Unauthorized(new ErrorResponse("INVALID_CREDENTIALS", "Invalid username or password."));
 
         var token = GenerateToken(user);
-        return Ok(new { access_token = token });
+        return Ok(new { access_token = token, token });
     }
 
     private string GenerateToken(User user)

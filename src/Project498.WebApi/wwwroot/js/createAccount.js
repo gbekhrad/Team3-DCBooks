@@ -16,6 +16,12 @@ document.getElementById("createAccountForm").addEventListener("submit", async (e
 
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
+    const errorDiv = document.getElementById("passwordError");
+
+    if (password !== confirmPassword) {
+        errorDiv.textContent = "Passwords do not match";
+        return;
+    }
 
     const user = {
         firstName: document.getElementById("firstName").value,
@@ -26,7 +32,7 @@ document.getElementById("createAccountForm").addEventListener("submit", async (e
     };
 
     try {
-        const response = await fetch("https://localhost:5001/api/users", {
+        const response = await fetch("/api/auth/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -39,8 +45,8 @@ document.getElementById("createAccountForm").addEventListener("submit", async (e
             alert("Account created!");
             window.location.href = "login.html";
         } else {
-            const errorText = await response.text(); // backend sends the message
-            errorDiv.textContent = errorText;         // show inline error instead of generic alert
+            const error = await response.json().catch(() => ({}));
+            errorDiv.textContent = error.message || "Could not create account.";
         }
 
     } catch (err) {

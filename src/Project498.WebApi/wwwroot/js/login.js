@@ -5,7 +5,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     const password = document.getElementById("floatingPassword").value;
 
     try {
-        const response = await fetch("https://localhost:5001/api/users/login", {
+        const response = await fetch("/api/auth/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -17,19 +17,20 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
         });
 
         if (response.ok) {
-            const user = await response.json();
+            const auth = await response.json();
 
-            // store login state
-            localStorage.setItem("loggedInUser", user.username);
+            // Persist JWT for protected API calls.
+            localStorage.setItem("accessToken", auth.access_token ?? auth.token);
 
             alert("Login successful!");
             window.location.href = "index.html";
         } else {
-            alert("Invalid username or password");
+            const error = await response.json().catch(() => ({}));
+            document.getElementById("errorMessage").textContent = error.message || "Invalid username or password";
         }
 
     } catch (error) {
         console.error("Error:", error);
-        document.getElementById("errorMessage").textContent = "Invalid username or password";
+        document.getElementById("errorMessage").textContent = "Unable to reach server. Please try again.";
     }
 });
