@@ -33,8 +33,18 @@ public class CheckoutsController(AppDbContext appDb, ComicsDbContext comicsDb) :
     public async Task<IActionResult> GetUserCheckouts(int userId)
     {
         var checkouts = await appDb.Checkouts
-            .Where(c => c.UserId == userId)
+            .Where(c => c.UserId == userId && c.ReturnDate == null)
             .OrderByDescending(c => c.CheckoutDate)
+            .Select(c => new {
+                c.CheckoutId,
+                c.ComicId,
+                c.DueDate,
+                c.CheckoutDate,
+                ComicTitle = comicsDb.Comics
+                    .Where(comic => comic.ComicId == c.ComicId)
+                    .Select(comic => comic.Title)
+                    .FirstOrDefault()
+            })
             .ToListAsync();
         return Ok(checkouts);
     }
