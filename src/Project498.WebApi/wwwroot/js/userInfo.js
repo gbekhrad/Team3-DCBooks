@@ -239,3 +239,46 @@ document.getElementById("savePassword").addEventListener("click", async () => {
         document.getElementById("passwordMessage").textContent = "Server error";
     }
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const confirmBtn = document.getElementById("confirmDelete");
+    const input = document.getElementById("deleteConfirmInput");
+    const modal = document.getElementById("deleteAccountModal");
+
+    // Safety reset when modal closes
+    modal.addEventListener("hidden.bs.modal", () => {
+        input.value = "";
+        confirmBtn.disabled = true;
+    });
+
+    // Enable button only when "DELETE"
+    input.addEventListener("input", () => {
+        confirmBtn.disabled = input.value.trim().toUpperCase() !== "DELETE";
+    });
+
+    // Click handler
+    confirmBtn.addEventListener("click", async () => {
+        console.log("DELETE CLICKED"); // debug
+
+        const userId = getUserIdFromToken();
+
+        try {
+            const response = await fetch(`/api/users/${userId}`, {
+                method: "DELETE"
+            });
+
+            if (response.ok) {
+                localStorage.removeItem("accessToken");
+                window.location.href = "login.html";
+            } else {
+                const error = await response.text();
+                document.getElementById("deleteError").textContent = error;
+            }
+
+        } catch (err) {
+            console.error(err);
+            document.getElementById("deleteError").textContent = "Server error";
+        }
+    });
+});

@@ -70,30 +70,38 @@
         </div>
 
         <!-- Password (modal only) -->
-        <div class="mb-3">
+        <div class="mb-3 col-11">
             <label class="form-label">Password</label>
             <button type="button" class="btn btn-outline-secondary w-100"
                     data-bs-toggle="modal" data-bs-target="#passwordModal">
                 Change Password
             </button>
         </div>
+        
+        <!-- Delete account button -->
+        <div class="mt-5 text-center">
+            <button type="button" class="btn btn-danger"
+                    data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
+                Delete Account
+            </button>
+        </div>
     </form>
 
-    <!-- USERNAME MODAL -->
-    <div class="modal fade" id="usernameModal">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content p-4">
-                <h5>Change Username</h5>
+        <!-- USERNAME MODAL -->
+        <div class="modal fade" id="usernameModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-4">
+                    <h5>Change Username</h5>
 
-                <input type="text" class="form-control mb-2" id="newUsername">
-                <div id="usernameError" class="text-danger mb-2"></div>
+                    <input type="text" class="form-control mb-2" id="newUsername">
+                    <div id="usernameError" class="text-danger mb-2"></div>
 
-                <button type="button" class="btn btn-primary" id="saveUsername">
-                    Save
-                </button>
+                    <button type="button" class="btn btn-primary" id="saveUsername">
+                        Save
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
         <!-- EMAIL MODAL -->
         <div class="modal fade" id="emailModal">
             <div class="modal-dialog modal-dialog-centered">
@@ -110,29 +118,54 @@
             </div>
         </div>
         
-    <!-- PASSWORD MODAL -->
-    <div class="modal fade" id="passwordModal">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content p-4">
+        <!-- PASSWORD MODAL -->
+        <div class="modal fade" id="passwordModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-4">
 
-                <h5>Change Password</h5>
+                    <h5>Change Password</h5>
 
-                <input type="text" class="form-control mb-2" id="oldPassword" placeholder="Old Password">
+                    <input type="text" class="form-control mb-2" id="oldPassword" placeholder="Old Password">
 
-                <input type="text" class="form-control mb-2" id="newPassword" placeholder="New Password">
-                <div id="repeatError" class="text-danger"></div>
+                    <input type="text" class="form-control mb-2" id="newPassword" placeholder="New Password">
+                    <div id="repeatError" class="text-danger"></div>
 
-                <input type="text" class="form-control mb-2" id="confirmPassword" placeholder="Confirm Password">
-                <div id="matchError" class="text-danger mb-2"></div>
+                    <input type="text" class="form-control mb-2" id="confirmPassword" placeholder="Confirm Password">
+                    <div id="matchError" class="text-danger mb-2"></div>
 
-                <button type="submit" class="btn btn-primary w-100" id="savePassword">
-                    Save
-                </button>
+                    <button type="submit" class="btn btn-primary w-100" id="savePassword">
+                        Save
+                    </button>
 
-                <div id="passwordMessage" class="text-danger mb-2"></div>
+                    <div id="passwordMessage" class="text-danger mb-2"></div>  
+                </div>
             </div>
         </div>
-    </div>
+        
+        <!-- DELETE MODAL -->
+        <div class="modal fade" id="deleteAccountModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-4 text-center">
+
+                    <h5 class="text-danger">Delete Account?</h5>
+                    <p>This action cannot be undone.</p>
+
+                    <div id="deleteError" class="text-danger mb-2"></div>
+                    
+                    <input type="text" id="deleteConfirmInput" class="form-control mb-2"
+                           placeholder="Type DELETE to confirm">
+                    <button class="btn btn-danger" id="confirmDelete" disabled>
+                        Yes, Delete
+                    </button>
+                    <div class="d-flex justify-content-center gap-2">
+                        <button class="btn btn-secondary mt-2" data-bs-dismiss="modal">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </main>
 <script src="js/userInfo.js"></script>
