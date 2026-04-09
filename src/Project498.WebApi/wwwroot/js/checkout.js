@@ -5,7 +5,7 @@ function getUserIdFromToken() {
     try {
         const payload = JSON.parse(atob(token.split(".")[1]));
 
-        // Try several possible claim names
+        //possible claim names
         return (
             payload.user_id ||
             payload.nameid ||
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
         let checkouts = [];
 
-        // Try the user-specific endpoint first
+        // user-specific endpoint first
         const userResponse = await fetch(`http://localhost:8080/api/checkouts/user/${userId}`, {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         } else {
             console.warn("User checkout endpoint failed, trying fallback.");
 
-            // Fallback: get all checkouts and filter client-side
+            // get all checkouts and filter client-side
             const allResponse = await fetch(`http://localhost:8080/api/checkouts`, {
                 headers: {
                     Authorization: `Bearer ${token}`
