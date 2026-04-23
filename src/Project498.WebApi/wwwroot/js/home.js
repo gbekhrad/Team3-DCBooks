@@ -39,17 +39,24 @@ function renderComics(list) {
     
     comicList.innerHTML = list.map(comic => ` 
         <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm" style="cursor:pointer"
-                onClick="window.location.href='comic-detail.html?id=${comic.comicId}'">
-                <div class="card-body">
+            <div class="comic-card h-100" onclick="window.location.href='comic-detail.html?id=${comic.comicId}'">
+                <div class="comic-card-top">
+                    <span class="badge ${comic.statuc === "available" ? "text-bg-success" : "text-bg-secondary"}">
+                        ${comic.status === "available" ? "Available" : "Checked Out"}
+                    </span>  
+                </div>                  
+                
+                <div class="comic-card-body">
                     <h5 class="card-title">${comic.title}</h5>
+                    
                     <p class="card-text mb-1"><strong>Issue:</strong> ${comic.issueNumber}</p>
                     <p class="card-text mb-1"><strong>Publisher:</strong> ${comic.publisher}</p>
                     <p class="card-text mb-1"><strong>Year:</strong> ${comic.yearPublished}</p>
-                    <p class="card-text mb-2"><strong>Characters:</strong> ${comic.characterNames?.join(" , ") || "None listed"}</p>
-                    <p class="card-text"> 
-                        <strong>Status:</strong> ${comic.status === "available" ? "Available" : "Checked Out"}
-                   </p>
+                    <p class="card-text mb-3">
+                        <strong>Characters:</strong> ${comic.characterNames?.join(" , ") || "None listed"}</p>
+                   <button class="btn btn-outline-primary w-100">
+                        View Details
+                    </button>
                 </div>
             </div>
         </div>
