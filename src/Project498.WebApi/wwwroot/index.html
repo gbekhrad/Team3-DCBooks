@@ -7,13 +7,15 @@
     
     <!--Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     
-    <!-- Bootstrap navbar -->
+    <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="index.html">DC Comics</a>
@@ -47,8 +49,19 @@
     </nav>
 
     <!-- Bootstrap container adds centered layout and spacing -->
-    <div class="container py-4">
-        <h1 class="mb-4">Browse Comics</h1>
+<section class="hero-section">
+    <div class="container py-5">
+        <div class="hero-card p-4 p-md-5">
+            <p class="text-uppercase fw-bold text-primary mb-2">DC Comics Library</p>
+            <h1 class="display-4 fw-bold mb-3">Browse Comics</h1>
+            <p class="lead text-muted mb-0">
+                Search the collection by title, character, or publisher.
+            </p>
+        </div>
+    </div>
+</section>
+
+<div class="container py-4">    
         
         <!-- Boostrap search/filter row -->
         <div class="row g-3 mb-4">
@@ -63,11 +76,11 @@
             </div>
         </div>
         
-        <!--Comics get inserted here Javascript -->
+        <!--Comics get inserted here -->
         <div id="comicList" class="row"></div>
     </div>
 
-    <!-- java script files -->
+    <!-- js files -->
     <script src="js/home.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
