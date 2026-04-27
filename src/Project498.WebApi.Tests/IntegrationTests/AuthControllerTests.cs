@@ -6,7 +6,7 @@ using Project498.WebApi.Controllers;
 using Project498.WebApi.Data;
 using Project498.WebApi.Models;
 
-namespace Project498.WebApi.Tests;
+namespace Project498.WebApi.Tests.IntegrationTests;
 
 public class AuthControllerTests
 {
