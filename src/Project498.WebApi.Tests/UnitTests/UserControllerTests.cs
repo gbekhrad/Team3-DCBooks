@@ -5,7 +5,7 @@ using Project498.WebApi.Models;
 using Project498.WebApi.Controllers;
 using Project498.WebApi.Models.DTOs;
 
-namespace Project498.WebApi.Tests;
+namespace Project498.WebApi.Tests.UnitTests;
 
 public class UserControllerTests
 {
