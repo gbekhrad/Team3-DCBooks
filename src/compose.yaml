@@ -11,7 +11,7 @@ services:
       - ConnectionStrings__AppConnection=Host=db;Database=project498_app;Username=postgres;Password=postgres
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://0.0.0.0:8080
-      - Jwt__Secret=your-super-secret-key-change-this-in-production-min-32-chars
+      - Jwt__Secret=${JWT_SECRET:-your-super-secret-key-change-this-in-production-min-32-chars}
       - Jwt__ExpiresInHours=1
       # Tell the MVC proxy where to find the backend API inside the Docker network.
       - BackendApi__BaseUrl=http://project498.webapi:8080
