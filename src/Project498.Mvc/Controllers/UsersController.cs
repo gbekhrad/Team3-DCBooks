@@ -116,7 +116,7 @@ public class UsersController : ControllerBase
         var user = await _context.Users.FindAsync(dto.UserId);
 
         if (user == null)
-            return NotFound();
+            return NotFound(new ErrorResponse("USER_NOT_FOUND", $"User {dto.UserId} was not found."));
 
         if (!BCrypt.Net.BCrypt.Verify(dto.OldPassword, user.Password))
             return BadRequest(new ErrorResponse("INVALID_OLD_PASSWORD", "The current password is incorrect."));
