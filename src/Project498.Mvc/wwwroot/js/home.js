@@ -8,7 +8,7 @@ let comics = [];
 
 async function loadComics(){
     try {
-        const response = await fetch("http://localhost:8080/api/comics");
+        const response = await fetch("/api/comics");
         
         if (!response.ok) {
             throw new Error("Could not load comics from the database.");

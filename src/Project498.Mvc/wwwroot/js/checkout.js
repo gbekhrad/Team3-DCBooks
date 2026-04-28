@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         let checkouts = [];
 
         // user-specific endpoint first
-        const userResponse = await fetch(`http://localhost:8080/api/checkouts/user/${userId}`, {
+        const userResponse = await fetch(`/api/checkouts/user/${userId}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             console.warn("User checkout endpoint failed, trying fallback.");
 
             // get all checkouts and filter client-side
-            const allResponse = await fetch(`http://localhost:8080/api/checkouts`, {
+            const allResponse = await fetch(`/api/checkouts`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             let comicTitle = `Comic #${c.comicId}`;
 
             try {
-                const comicResponse = await fetch(`http://localhost:8080/api/comics/${c.comicId}`);
+                const comicResponse = await fetch(`/api/comics/${c.comicId}`);
                 if (comicResponse.ok) {
                     const comic = await comicResponse.json();
                     comicTitle = comic.title;
@@ -128,7 +128,7 @@ async function returnComic(checkoutId, element, button, token) {
         button.disabled = true;
         button.textContent = "Returning...";
 
-        const response = await fetch(`http://localhost:8080/api/checkouts/${checkoutId}`, {
+        const response = await fetch(`/api/checkouts/${checkoutId}`, {
             method: "PUT",
             headers: {
                 Authorization: `Bearer ${token}`

@@ -52,7 +52,7 @@ async function loadComic(){
     currentComicId = comicId;
     
     try {
-        const response = await fetch(`http://localhost:8080/api/comics/${comicId}`);
+        const response = await fetch(`/api/comics/${comicId}`);
         
         if (!response.ok) {
             throw new Error("Could not load comic details.");
@@ -108,7 +108,7 @@ async function checkoutComic(){
     }
 
     try {
-        const response = await fetch("http://localhost:8080/api/checkouts", {
+        const response = await fetch("/api/checkouts", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
