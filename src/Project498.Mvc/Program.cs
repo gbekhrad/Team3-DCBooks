@@ -17,7 +17,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Tokens are issued by AuthController and validated here on protected MVC endpoints.
 // Note: the service-to-service API key (for outbound calls to the backend) is handled
 // separately via ApiKeyConstants — it is NOT related to this JWT configuration.
-var jwtSecret = builder.Configuration["Jwt:Secret"]!;
+var jwtSecret = builder.Configuration["Jwt:Secret"]
+    ?? throw new InvalidOperationException("Jwt:Secret is not configured.");
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -38,7 +39,9 @@ builder.Services.AddAuthorization();
 // not here, so each request gets the service key independently.
 builder.Services.AddHttpClient("backend", client =>
 {
-    client.BaseAddress = new Uri(builder.Configuration["BackendApi:BaseUrl"]!);
+    var baseUrl = builder.Configuration["BackendApi:BaseUrl"]
+        ?? throw new InvalidOperationException("BackendApi:BaseUrl is not configured.");
+    client.BaseAddress = new Uri(baseUrl);
 });
 
 var app = builder.Build();
@@ -51,7 +54,10 @@ if (app.Environment.IsDevelopment())
     await DbSeeder.SeedAppAsync(db);
 }
 
-app.UseHttpsRedirection();
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 
 // Serve static HTML/CSS/JS from wwwroot (index.html, login.html, etc.).
 app.UseStaticFiles();
