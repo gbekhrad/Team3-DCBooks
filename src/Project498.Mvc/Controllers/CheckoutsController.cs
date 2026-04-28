@@ -270,7 +270,7 @@ public class CheckoutsController : ControllerBase
 }
 
 /// <summary>Request body for creating a new checkout.</summary>
-file record CheckoutRequest(int ComicId);
+public record CheckoutRequest(int ComicId);
 
 /// <summary>
 /// Local DTO for deserializing comic data from the backend API (<c>GET /api/comics/{id}</c>).
