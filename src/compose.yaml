@@ -38,6 +38,8 @@ services:
     depends_on:
       db_comics:
         condition: service_healthy
+    ports:
+      - "5100:8080"
 
   db:
     image: postgres:latest
